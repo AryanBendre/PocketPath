@@ -1,21 +1,12 @@
-name: Sync to Hugging Face Hub
-
-on:
-  push:
-    branches: [main] 
-  workflow_dispatch: 
-
+name: Sync to Hugging Face hub
+on: [push]
 jobs:
-  sync-to-hub:
+  sync:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-          lfs: true
-      
-      - name: Push to Hugging Face Hub
+        with: {fetch-depth: 0}
+      - name: Push to hub
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        # The --force command stops that Exit Code 1 error from ever happening!
         run: git push --force https://AryanBendre:$HF_TOKEN@huggingface.co/spaces/AryanBendre/PocketPath main
