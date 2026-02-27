@@ -11,7 +11,7 @@ from dotenv import load_dotenv
 st.set_page_config(page_title="PocketPath | Travel Jugaad", page_icon="🎒", layout="centered")
 
 load_dotenv()
-genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+genai.configure(api_key=os.getenv("GEMINI_API_KEY").strip())
 model = genai.GenerativeModel('gemini-2.5-flash')
 
 # ==========================================
@@ -338,4 +338,5 @@ else:
             st.session_state.itinerary = None
             # Fetch a generic adventure background when restarting!
             st.session_state.bg_img, st.session_state.bg_color = fetch_adventure_bg() 
+
             st.rerun()
