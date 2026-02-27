@@ -1,7 +1,7 @@
 ---
 title: PocketPath
 emoji: 🎒
-colorFrom: orange
+colorFrom: red
 colorTo: red
 sdk: streamlit
 app_file: app.py
